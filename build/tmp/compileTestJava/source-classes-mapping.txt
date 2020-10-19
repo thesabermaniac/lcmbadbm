@@ -1,0 +1,2 @@
+lcmbadbm/LibraryTest.java
+ lcmbadbm.LibraryTest

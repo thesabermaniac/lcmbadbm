@@ -289,8 +289,13 @@ public class App {
         worker.execute();
     }
 
+    /**
+     * This method is intentionally broken to cause the unit test to fail
+     *
+     * @return product of blockSIzeKb and numOfBlocks
+     */
     public static long targetMarkSizeKb() {
-        return blockSizeKb * numOfBlocks;
+        return blockSizeKb * numOfBlocks + 1;
     }
 
     public static long targetTxSizeKb() {

@@ -1,17 +1,24 @@
-lcmbadbm/edu/touro/mco152/bm/App.java
+edu/touro/mco152/bm/Util.java
+ edu.touro.mco152.bm.Util
+lcmbadbm/Library.java
+ lcmbadbm.Library
+edu/touro/mco152/bm/App.java
  edu.touro.mco152.bm.App
  edu.touro.mco152.bm.App$1
  edu.touro.mco152.bm.App$2
  edu.touro.mco152.bm.App$State
-lcmbadbm/edu/touro/mco152/bm/persist/EM.java
+edu/touro/mco152/bm/persist/EM.java
  edu.touro.mco152.bm.persist.EM
-lcmbadbm/edu/touro/mco152/bm/persist/DiskRun.java
- edu.touro.mco152.bm.persist.DiskRun
- edu.touro.mco152.bm.persist.DiskRun$BlockSequence
- edu.touro.mco152.bm.persist.DiskRun$IOMode
-lcmbadbm/Library.java
- lcmbadbm.Library
-lcmbadbm/edu/touro/mco152/bm/ui/MainFrame.java
+edu/touro/mco152/bm/persist/package-info.java
+ edu.touro.mco152.bm.persist.package-info
+edu/touro/mco152/bm/DiskMark.java
+ edu.touro.mco152.bm.DiskMark
+ edu.touro.mco152.bm.DiskMark$MarkType
+edu/touro/mco152/bm/ui/RunPanel.java
+ edu.touro.mco152.bm.ui.RunPanel
+ edu.touro.mco152.bm.ui.RunPanel$1
+ edu.touro.mco152.bm.ui.RunPanel$2
+edu/touro/mco152/bm/ui/MainFrame.java
  edu.touro.mco152.bm.ui.MainFrame
  edu.touro.mco152.bm.ui.MainFrame$1
  edu.touro.mco152.bm.ui.MainFrame$10
@@ -33,24 +40,17 @@ lcmbadbm/edu/touro/mco152/bm/ui/MainFrame.java
  edu.touro.mco152.bm.ui.MainFrame$7
  edu.touro.mco152.bm.ui.MainFrame$8
  edu.touro.mco152.bm.ui.MainFrame$9
-lcmbadbm/edu/touro/mco152/bm/Util.java
- edu.touro.mco152.bm.Util
-lcmbadbm/edu/touro/mco152/bm/ui/Gui.java
+edu/touro/mco152/bm/ui/Gui.java
  edu.touro.mco152.bm.ui.Gui
  edu.touro.mco152.bm.ui.Gui$1
-lcmbadbm/edu/touro/mco152/bm/ui/SelectFrame.java
+edu/touro/mco152/bm/DiskWorker.java
+ edu.touro.mco152.bm.DiskWorker
+edu/touro/mco152/bm/ui/SelectFrame.java
  edu.touro.mco152.bm.ui.SelectFrame
  edu.touro.mco152.bm.ui.SelectFrame$1
-lcmbadbm/edu/touro/mco152/bm/ui/package-info.java
- lcmbadbm.edu.touro.mco152.bm.ui.package-info
-lcmbadbm/edu/touro/mco152/bm/ui/RunPanel.java
- edu.touro.mco152.bm.ui.RunPanel
- edu.touro.mco152.bm.ui.RunPanel$1
- edu.touro.mco152.bm.ui.RunPanel$2
-lcmbadbm/edu/touro/mco152/bm/DiskWorker.java
- edu.touro.mco152.bm.DiskWorker
-lcmbadbm/edu/touro/mco152/bm/persist/package-info.java
- lcmbadbm.edu.touro.mco152.bm.persist.package-info
-lcmbadbm/edu/touro/mco152/bm/DiskMark.java
- edu.touro.mco152.bm.DiskMark
- edu.touro.mco152.bm.DiskMark$MarkType
+edu/touro/mco152/bm/persist/DiskRun.java
+ edu.touro.mco152.bm.persist.DiskRun
+ edu.touro.mco152.bm.persist.DiskRun$BlockSequence
+ edu.touro.mco152.bm.persist.DiskRun$IOMode
+edu/touro/mco152/bm/ui/package-info.java
+ edu.touro.mco152.bm.ui.package-info

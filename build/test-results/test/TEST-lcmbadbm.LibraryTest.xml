@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="lcmbadbm.LibraryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-19T18:11:51" hostname="DESKTOP-UKLBBNN" time="0.005">
-  <properties/>
-  <testcase name="testSomeLibraryMethod" classname="lcmbadbm.LibraryTest" time="0.005"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

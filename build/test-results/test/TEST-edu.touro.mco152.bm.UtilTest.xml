@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="edu.touro.mco152.bm.UtilTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-10-26T18:49:48" hostname="FALCON-HEAVY" time="0.063">
+<testsuite name="edu.touro.mco152.bm.UtilTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-12-06T15:03:23" hostname="FALCON-HEAVY" time="0.178">
   <properties/>
-  <testcase name="testDisplayStringCrossCheck()" classname="edu.touro.mco152.bm.UtilTest" time="0.003"/>
-  <testcase name="[1] 123.460001" classname="edu.touro.mco152.bm.UtilTest" time="0.019"/>
+  <testcase name="testDisplayStringCrossCheck()" classname="edu.touro.mco152.bm.UtilTest" time="0.004"/>
+  <testcase name="[1] 123.460001" classname="edu.touro.mco152.bm.UtilTest" time="0.053"/>
   <testcase name="[2] 123.4567" classname="edu.touro.mco152.bm.UtilTest" time="0.001"/>
-  <testcase name="[3] 123.46012" classname="edu.touro.mco152.bm.UtilTest" time="0.0"/>
-  <testcase name="[4] 123.455555" classname="edu.touro.mco152.bm.UtilTest" time="0.001"/>
+  <testcase name="[3] 123.46012" classname="edu.touro.mco152.bm.UtilTest" time="0.002"/>
+  <testcase name="[4] 123.455555" classname="edu.touro.mco152.bm.UtilTest" time="0.002"/>
   <testcase name="[5] 123.459999" classname="edu.touro.mco152.bm.UtilTest" time="0.001"/>
-  <testcase name="testDisplayStringMax()" classname="edu.touro.mco152.bm.UtilTest" time="0.0"/>
-  <testcase name="testDisplayStringMin()" classname="edu.touro.mco152.bm.UtilTest" time="0.0"/>
-  <testcase name="testRandIntError()" classname="edu.touro.mco152.bm.UtilTest" time="0.003"/>
+  <testcase name="testDisplayStringMax()" classname="edu.touro.mco152.bm.UtilTest" time="0.002"/>
+  <testcase name="testDisplayStringMin()" classname="edu.touro.mco152.bm.UtilTest" time="0.001"/>
+  <testcase name="testRandIntError()" classname="edu.touro.mco152.bm.UtilTest" time="0.006"/>
   <testcase name="testRandInt()" classname="edu.touro.mco152.bm.UtilTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
+  <system-out><![CDATA[Mark(READ): 1 bwMbSec: 782.394 avg: 782.394
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

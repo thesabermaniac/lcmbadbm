@@ -290,12 +290,11 @@ public class App {
     }
 
     /**
-     * This method is intentionally broken to cause the unit test to fail
      *
-     * @return product of blockSIzeKb and numOfBlocks
+     * @return product of blockSizeKb and numOfBlocks
      */
     public static long targetMarkSizeKb() {
-        return blockSizeKb * numOfBlocks + 1;
+        return blockSizeKb * numOfBlocks;
     }
 
     public static long targetTxSizeKb() {

@@ -1,4 +1,6 @@
-edu/touro/mco152/bm/AppTest.java
- edu.touro.mco152.bm.AppTest
 edu/touro/mco152/bm/UtilTest.java
  edu.touro.mco152.bm.UtilTest
+edu/touro/mco152/bm/AppTest.java
+ edu.touro.mco152.bm.AppTest
+edu/touro/mco152/bm/NonSwingTest.java
+ edu.touro.mco152.bm.NonSwingTest

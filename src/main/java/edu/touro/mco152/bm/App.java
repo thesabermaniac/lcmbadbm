@@ -289,6 +289,10 @@ public class App {
         worker.execute();
     }
 
+    /**
+     *
+     * @return product of blockSizeKb and numOfBlocks
+     */
     public static long targetMarkSizeKb() {
         return blockSizeKb * numOfBlocks;
     }

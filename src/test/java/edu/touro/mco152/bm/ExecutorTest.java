@@ -1,5 +1,6 @@
 package edu.touro.mco152.bm;
 
+import edu.touro.mco152.bm.persist.DiskRun;
 import edu.touro.mco152.bm.ui.Gui;
 import edu.touro.mco152.bm.ui.MainFrame;
 import org.junit.jupiter.api.Assertions;
@@ -9,8 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Properties;
 
-public class NonSwingTest {
-    DiskWorker dw = new DiskWorker();
+public class ExecutorTest {
 
     /**
      * Bruteforce setup of static classes/fields to allow DiskWorker to run.
@@ -47,24 +47,30 @@ public class NonSwingTest {
         }
     }
 
-    /**
-     * Tests the de-coupled read and write tests to ensure they output a valid result
-     * @throws IOException
-     */
-//    @Test
-//    public void readTest() throws IOException {
-//        setupDefaultAsPerProperties();
-//        App.numOfMarks = 1;
-//        Assertions.assertTrue((Float.parseFloat(dw.rMark.getAvgAsString()) > 0) && Float.parseFloat(dw.rMark.getAvgAsString()) < 10_000 );
-//        Assertions.assertTrue((Float.parseFloat(dw.rMark.getBwMbSecAsString()) > 0) && Float.parseFloat(dw.rMark.getBwMbSecAsString()) < 10_000 );
-//    }
-//
-//    @Test
-//    public void writeTest() {
-//        setupDefaultAsPerProperties();
-//        App.numOfMarks = 1;
-//        Assertions.assertTrue((Float.parseFloat(dw.wMark.getAvgAsString()) > 0) && Float.parseFloat(dw.wMark.getAvgAsString()) < 10_000 );
-//        Assertions.assertTrue((Float.parseFloat(dw.wMark.getBwMbSecAsString()) > 0) && Float.parseFloat(dw.wMark.getBwMbSecAsString()) < 10_000 );
-//
-//    }
+    @Test
+    public void writeTest() throws IOException {
+        setupDefaultAsPerProperties();
+        Invoker invoker = new Invoker();
+        WriteTest wt = new WriteTest();
+        App.numOfMarks = 1;
+        Command writeCommand = new WriteCommand(wt, 25, 128, 2048, DiskRun.BlockSequence.SEQUENTIAL);
+        invoker.addCommand(writeCommand);
+        invoker.executeCommands();
+        Assertions.assertTrue((Float.parseFloat(wt.wMark.getAvgAsString()) > 0) && Float.parseFloat(wt.wMark.getAvgAsString()) < 10_000 );
+        Assertions.assertTrue((Float.parseFloat(wt.wMark.getBwMbSecAsString()) > 0) && Float.parseFloat(wt.wMark.getBwMbSecAsString()) < 10_000 );
+    }
+
+    @Test
+    public void readTest() throws IOException {
+        setupDefaultAsPerProperties();
+        Invoker invoker = new Invoker();
+        ReadTest rt = new ReadTest();
+        App.numOfMarks = 1;
+        Command readCommand = new ReadCommand(rt, 25, 128, 2048, DiskRun.BlockSequence.SEQUENTIAL);
+        invoker.addCommand(readCommand);
+        invoker.executeCommands();
+        Assertions.assertTrue((Float.parseFloat(rt.rMark.getAvgAsString()) > 0) && Float.parseFloat(rt.rMark.getAvgAsString()) < 10_000 );
+        Assertions.assertTrue((Float.parseFloat(rt.rMark.getBwMbSecAsString()) > 0) && Float.parseFloat(rt.rMark.getBwMbSecAsString()) < 10_000 );
+
+    }
 }

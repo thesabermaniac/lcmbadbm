@@ -69,7 +69,13 @@ public class DiskWorker extends SwingWorker<Boolean, DiskMark> {
     public void addToInvoker(){
         if (App.writeTest) {
             WriteTest wt = new WriteTest();
-            WriteCommand wc = new WriteCommand(wt, numOfMarks, numOfBlocks, blockSizeKb, blockSequence);
+            WriteCommand wc = WriteCommand.builder()
+                    .wt(wt)
+                    .numOfMarks(numOfMarks)
+                    .numOfBlocks(numOfBlocks)
+                    .blockSizeKb(blockSizeKb)
+                    .blockSequence(blockSequence)
+                    .build();
             invoker.addCommand(wc);
             wt.register(dataBaseObserver);
             wt.register(gui);
@@ -78,7 +84,13 @@ public class DiskWorker extends SwingWorker<Boolean, DiskMark> {
 
         if (App.readTest) {
             ReadTest rt = new ReadTest();
-            ReadCommand rc = new ReadCommand(rt, numOfMarks, numOfBlocks, blockSizeKb, blockSequence);
+            ReadCommand rc = ReadCommand.builder()
+                    .rt(rt)
+                    .numOfMarks(numOfMarks)
+                    .numOfBlocks(numOfBlocks)
+                    .blockSizeKb(blockSizeKb)
+                    .blockSequence(blockSequence)
+                    .build();
             invoker.addCommand(rc);
             publish(rt.rMark);
             rt.register(dataBaseObserver);

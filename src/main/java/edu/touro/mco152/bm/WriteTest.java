@@ -1,22 +1,25 @@
 package edu.touro.mco152.bm;
 
 import edu.touro.mco152.bm.persist.DiskRun;
-import edu.touro.mco152.bm.persist.EM;
 import edu.touro.mco152.bm.ui.Gui;
 
-import javax.persistence.EntityManager;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static edu.touro.mco152.bm.App.*;
-import static edu.touro.mco152.bm.App.msg;
 import static edu.touro.mco152.bm.DiskMark.MarkType.WRITE;
 
-public class WriteTest {
+/**
+ * This class handles all the logic for running a write test.
+ * It implements the Subject interface, which means it maintains
+ * a list of observers and notifies them when it completes a write.
+ */
+public class WriteTest implements Subject{
     int startFileNum = 0;
     DiskMark wMark;
 
@@ -25,6 +28,8 @@ public class WriteTest {
     int wUnitsComplete = 0, rUnitsComplete = 0, unitsComplete = 0;
     float percentComplete;
     int wUnitsTotal = writeTest ? numOfBlocks * numOfMarks : 0;
+    DiskRun run = new DiskRun(DiskRun.IOMode.WRITE, App.blockSequence);
+    ArrayList<Observer> observers = new ArrayList<>();
 
     public WriteTest(){
     }
@@ -36,7 +41,6 @@ public class WriteTest {
             }
         }
 
-        DiskRun run = new DiskRun(DiskRun.IOMode.WRITE, App.blockSequence);
         run.setNumMarks(numOfMarks);
         run.setNumBlocks(numOfBlocks);
         run.setBlockSize(blockSizeKb);
@@ -131,11 +135,41 @@ public class WriteTest {
         /**
          * Persist info about the Write BM Run (e.g. into Derby Database) and add it to a GUI panel
          */
-        EntityManager em = EM.getEntityManager();
-        em.getTransaction().begin();
-        em.persist(run);
-        em.getTransaction().commit();
+        notifyObservers();
+    }
 
-        Gui.runPanel.addRun(run);
+    /**
+     * Adds Observer objects to our observers list. This
+     * allows the class to notify any interested observers
+     * in a decoupled fashion.
+     *
+     * @param o
+     */
+    @Override
+    public void register(Observer o) {
+        observers.add(o);
+    }
+
+    /**
+     * Removes Observer objects from our observers list. This
+     * allows the class to stop notifying Observer objects that
+     * no longer require updates.
+     *
+     * @param o
+     */
+    @Override
+    public void unregister(Observer o) {
+        observers.remove(o);
+    }
+
+    /**
+     * Iterates over our observers list and calls each object's
+     * update method, passing our run data.
+     */
+    @Override
+    public void notifyObservers() {
+        for(Observer observer : observers){
+            observer.update(run);
+        }
     }
 }

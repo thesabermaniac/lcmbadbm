@@ -1,5 +1,6 @@
 package edu.touro.mco152.bm;
 
+import edu.touro.mco152.bm.persist.DataBaseObserver;
 import edu.touro.mco152.bm.ui.Gui;
 
 import javax.swing.*;
@@ -29,6 +30,9 @@ public class DiskWorker extends SwingWorker<Boolean, DiskMark> {
 
     Invoker invoker = new Invoker();
 
+    DataBaseObserver dataBaseObserver = new DataBaseObserver();
+    Gui gui = new Gui();
+    SlackObserver so = new SlackObserver();
 
     @Override
     protected Boolean doInBackground() throws Exception {
@@ -67,6 +71,9 @@ public class DiskWorker extends SwingWorker<Boolean, DiskMark> {
             WriteTest wt = new WriteTest();
             WriteCommand wc = new WriteCommand(wt, numOfMarks, numOfBlocks, blockSizeKb, blockSequence);
             invoker.addCommand(wc);
+            wt.register(dataBaseObserver);
+            wt.register(gui);
+            wt.register(so);
         }
 
         if (App.readTest) {
@@ -74,6 +81,9 @@ public class DiskWorker extends SwingWorker<Boolean, DiskMark> {
             ReadCommand rc = new ReadCommand(rt, numOfMarks, numOfBlocks, blockSizeKb, blockSequence);
             invoker.addCommand(rc);
             publish(rt.rMark);
+            rt.register(dataBaseObserver);
+            rt.register(gui);
+            rt.register(so);
         }
 
     }
